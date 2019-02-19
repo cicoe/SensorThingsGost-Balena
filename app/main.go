@@ -16,9 +16,7 @@ func main() {
 	fmt.Println("Example app listening on port ", addr)
 	log.Fatal(http.ListenAndServe(addr, nil))
 */
-    sum := 1
-    for sum < 1000 {
-		sum += sum
+    for {
         fmt.Println("hello world")
         time.Sleep(10 * time.Second)
 	}
