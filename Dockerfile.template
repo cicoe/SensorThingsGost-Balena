@@ -5,15 +5,17 @@ RUN apt-get -q update && apt-get install -yq --no-install-recommends \
 	build-essential cmake\
 	&& apt-get clean && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /go/src/github.com/balena-io-projects/app
+WORKDIR /usr/src/app
+#WORKDIR /go/src/github.com/balena-io-projects/app
+ADD run.sh /usr/src/app/run.sh
+CMD ["/usr/src/app/run.sh"]
 
-COPY /app/ ./
-
-RUN go build
-RUN cmake --build /DH11/cmake-build-debug --target DH11 -- -j 2
-
-FROM balenalib/%%BALENA_MACHINE_NAME%%-debian:stretch
-
-COPY --from=build /go/src/github.com/balena-io-projects/app/ .
-
-CMD ./app
+#COPY /app ./
+#
+#RUN go build
+#
+#FROM balenalib/%%BALENA_MACHINE_NAME%%-debian:stretch
+#
+#COPY --from=build /go/src/github.com/balena-io-projects/app/ .
+#
+#CMD ./app
