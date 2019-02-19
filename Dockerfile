@@ -1,4 +1,4 @@
-FROM balenalib/%%BALENA_MACHINE_NAME%%-golang:latest-build AS build
+FROM balenalib/beaglebone-black-golang:latest-build AS build
 
 # Install build tools and remove layer cache afterwards
 RUN apt-get -q update && apt-get install -yq --no-install-recommends \
