@@ -7,7 +7,7 @@ RUN apt-get -q update && apt-get install -yq --no-install-recommends \
 
 WORKDIR /go/src/github.com/balena-io-projects/app
 
-COPY /app ./
+COPY /app/ ./
 
 RUN go build
 RUN cmake --build /DH11/cmake-build-debug --target DH11 -- -j 2
