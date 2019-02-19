@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/DH11.dir/bbb_dht_read.c.o CMakeFiles/DH11.dir/bbb_mmio.c.o CMakeFiles/DH11.dir/common_dht_read.c.o CMakeFiles/DH11.dir/main.c.o  -o DH11 
