@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+    "time"
+
 //	"log"
 //	"net/http"
 )
@@ -14,5 +16,10 @@ func main() {
 	fmt.Println("Example app listening on port ", addr)
 	log.Fatal(http.ListenAndServe(addr, nil))
 */
-    fmt.Println("hello world")
+    sum := 1
+    for sum < 1000 {
+		sum += sum
+        fmt.Println("hello world")
+        time.Sleep(10 * time.Second)
+	}
 }
