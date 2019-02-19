@@ -10,6 +10,7 @@ WORKDIR /go/src/github.com/balena-io-projects/app
 COPY /app ./
 
 RUN go build
+RUN cmake --build /DH11/cmake-build-debug --target DH11 -- -j 2
 
 FROM balenalib/%%BALENA_MACHINE_NAME%%-debian:stretch
 
