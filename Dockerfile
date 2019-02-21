@@ -6,14 +6,13 @@ RUN apt-get -q update && apt-get install -yq --no-install-recommends \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Build Go application
-WORKDIR /go/src/github.com/balena-io-projects/app
-COPY /app ./
-RUN go build
+#WORKDIR /go/src/github.com/balena-io-projects/app
+#COPY /app ./
+#RUN go build
 
 # Build C application
-#WORKDIR /usr/src/app
-#COPY . /usr/src/app
-COPY /monitor ./
+WORKDIR /usr/src/app
+COPY . /usr/src/app
 RUN gcc -I./monitor -o monitorapp ./monitor/*.c
 
 # Switch to running container
