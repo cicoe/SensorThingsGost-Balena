@@ -17,7 +17,7 @@ RUN gcc -I./monitor -o monitorapp ./monitor/*.c
 
 # Switch to running container
 FROM balenalib/beaglebone-black-debian:stretch
-#COPY --from=build ./monitorapp monitorapp
+COPY --from=build ./monitorapp monitorapp
 #COPY --from=build /go/src/github.com/balena-io-projects/app/ .
 
 #switch on systemd init system in container
