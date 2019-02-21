@@ -13,6 +13,7 @@ RUN go build
 # Build C application
 #WORKDIR /usr/src/app
 #COPY . /usr/src/app
+COPY /monitor ./
 RUN gcc -I./monitor -o monitorapp ./monitor/*.c
 
 # Switch to running container
