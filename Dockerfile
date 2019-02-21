@@ -11,13 +11,13 @@ COPY /app ./
 RUN go build
 
 # Build C application
-WORKDIR /usr/src/app
-COPY . /usr/src/app
+#WORKDIR /usr/src/app
+#COPY . /usr/src/app
 RUN gcc -I./monitor -o monitorapp ./monitor/*.c
 
 # Switch to running container
 FROM balenalib/beaglebone-black-debian:stretch
-COPY --from=build /usr/src/app/monitorapp monitorapp
+#COPY --from=build /usr/src/app/monitorapp monitorapp
 COPY --from=build /go/src/github.com/balena-io-projects/app/ .
 
 #switch on systemd init system in container
