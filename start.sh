@@ -1,8 +1,8 @@
 #!/bin/sh
 
 echo "Starting sensor monitor"
-touch /data/monitorapp.log
-./monitorapp 
+touch /data/sensorlog.log
+./sensorapp 
 #./monitor/monitorapp > /data/monitorapp.log &
 
 #echo "starting go app"

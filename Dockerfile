@@ -21,7 +21,7 @@ RUN ls /usr/src/app/monitor
 # Switch to running container
 FROM balenalib/beaglebone-black-debian:stretch
 COPY --from=build /usr/src/app/sensorapp sensorapp
-COPY --from=build /usr/src/app/monitor/start.sh start.sh
+COPY --from=build /usr/src/app/start.sh start.sh
 #COPY --from=build /go/src/github.com/balena-io-projects/app/ .
 
 #switch on systemd init system in container
