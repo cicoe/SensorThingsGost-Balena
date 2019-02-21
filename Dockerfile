@@ -10,11 +10,11 @@ WORKDIR /go/src/github.com/balena-io-projects/app
 COPY /app ./
 RUN go build
 
-# Build C application
+## Build C application
 #WORKDIR /usr/src/app
 #COPY . /usr/src/app
-RUN gcc -I./monitor -o monitorapp ./monitor/*.c
-
+#RUN gcc -I./monitor -o monitorapp ./monitor/*.c
+#
 # Switch to running container
 FROM balenalib/beaglebone-black-debian:stretch
 #COPY --from=build /usr/src/app/monitorapp monitorapp
@@ -25,7 +25,7 @@ ENV INITSYSTEM on
 
 # Run binary on container startup
 
-RUN ["chmod", "+x", "./run.sh"]
-CMD ./run.sh
+#RUN ["chmod", "+x", "./run.sh"]
+#CMD ./run.sh
 #CMD ./monitor
-#CMD ./app
+CMD ./app
