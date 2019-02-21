@@ -13,10 +13,7 @@ RUN go build
 # Build C application
 WORKDIR /usr/src/app
 COPY . /usr/src/app
-RUN ls
-RUN ls /usr/src/app/monitor
 RUN gcc -I./monitor -o sensorapp ./monitor/*.c
-RUN ls /usr/src/app/monitor
 
 # Switch to running container
 FROM balenalib/beaglebone-black-debian:stretch
@@ -28,6 +25,4 @@ COPY --from=build /go/src/github.com/balena-io-projects/app/ .
 ENV INITSYSTEM on
 
 # Run binary on container startup
-RUN ls
 CMD ["bash", "start.sh"]
-#CMD ./app

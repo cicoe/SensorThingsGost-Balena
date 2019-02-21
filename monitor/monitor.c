@@ -5,16 +5,20 @@
 #include <unistd.h>
 
 int main() {
-   int sensor, gpio_base,gpio_number,result;
+    int sensor, gpio_base,gpio_number,result;
     float humidity = 0, temperature = 0;
+    gpio_base=1; //Header P8
+    gpio_number=13; //Pin 11
 
     while(1)
     {
-    printf("Hello, World!\n");
-    gpio_base=1;
-    gpio_number=13;
     result = bbb_dht_read(DHT11, gpio_base, gpio_number, &humidity, &temperature);
-    
+  
+    //Read timed out skip and try again
+    if (result == 0){
+        continue;
+    }
+//    publishjson(gpio_base, gpio_number, humidity, temperature);
     printf("Result: %d\n",result);
     printf("Pin: GPIO_%d_%d\n",gpio_base, gpio_number);
     printf("Humidity %f\n",humidity);
