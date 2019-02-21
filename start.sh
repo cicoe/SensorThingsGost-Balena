@@ -2,9 +2,9 @@
 
 echo "Starting sensor monitor"
 touch /data/sensorlog.log
-./sensorapp | teet /data/sensorlog.log 
-#./monitor/monitorapp > /data/monitorapp.log &
+#./sensorapp | tee /data/sensorlog.log 
+./sensorapp > /data/sensorlog.log &
 
-#echo "starting go app"
-#./app
+echo "starting go app"
+./app
 
