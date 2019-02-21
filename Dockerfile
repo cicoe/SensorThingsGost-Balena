@@ -24,6 +24,8 @@ COPY --from=build /go/src/github.com/balena-io-projects/app/ .
 ENV INITSYSTEM on
 
 # Run binary on container startup
+
+RUN ["chmod", "+x", "./run.sh"]
 CMD ./run.sh
 #CMD ./monitor
 #CMD ./app
