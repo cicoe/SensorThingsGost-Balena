@@ -14,6 +14,8 @@ int main() {
     gpio_base=1;
     gpio_number=13;
     result = bbb_dht_read(DHT11, gpio_base, gpio_number, &humidity, &temperature);
+    
+    printf("Result: %d\n",result);
     printf("Pin: GPIO_%d_%d\n",gpio_base, gpio_number);
     printf("Humidity %f\n",humidity);
     printf("Temperature %f\n",temperature);
