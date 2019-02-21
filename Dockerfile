@@ -13,12 +13,13 @@ RUN apt-get -q update && apt-get install -yq --no-install-recommends \
 # Build C application
 WORKDIR /usr/src/app
 COPY . /usr/src/app
+RUN ls
+RUN ls /usr/src/app
 RUN gcc -I./monitor -o monitorapp ./monitor/*.c
 
 # Switch to running container
 FROM balenalib/beaglebone-black-debian:stretch
 COPY --from=build /usr/src/app/monitorapp monitorapp
-COPY --from=build /usr/src/app/run.sh run.sh
 #COPY --from=build /go/src/github.com/balena-io-projects/app/ .
 
 #switch on systemd init system in container
@@ -26,8 +27,9 @@ ENV INITSYSTEM on
 
 # Run binary on container startup
 
-#RUN ["chmod", "+x", "./run.sh"]
-#CMD ./run.sh
-CMD ["bash", "/usr/src/app/run.sh"]
+RUN echo "NOW"
+RUN ls
+RUN PWD
+CMD ["bash", "start.sh"]
 #CMD ./monitorapp
 #CMD ./app
