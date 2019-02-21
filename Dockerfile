@@ -18,6 +18,7 @@ RUN gcc -I./monitor -o monitorapp ./monitor/*.c
 # Switch to running container
 FROM balenalib/beaglebone-black-debian:stretch
 COPY --from=build /usr/src/app/monitorapp monitorapp
+COPY --from=build /usr/src/app/run.sh run.sh
 #COPY --from=build /go/src/github.com/balena-io-projects/app/ .
 
 #switch on systemd init system in container
@@ -27,5 +28,6 @@ ENV INITSYSTEM on
 
 #RUN ["chmod", "+x", "./run.sh"]
 #CMD ./run.sh
-CMD ./monitorapp
+CMD ["bash", "/usr/src/app/run.sh"]
+#CMD ./monitorapp
 #CMD ./app
