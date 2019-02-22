@@ -1,3 +1,3 @@
 /home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/monitor/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/monitor/cmake-build-debug/CMakeFiles/sensorapp.dir
+/home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/monitor/cmake-build-debug/CMakeFiles/monitor.dir
 /home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/monitor/cmake-build-debug/CMakeFiles/edit_cache.dir

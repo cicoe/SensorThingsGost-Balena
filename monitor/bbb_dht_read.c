@@ -24,7 +24,6 @@
 #include "bbb_dht_read.h"
 #include "bbb_mmio.h"
 
-
 // This is the only processor specific magic value, the maximum amount of time to
 // spin in a loop before bailing out and considering the read a timeout.  This should
 // be a high value, but if you're running on a much faster platform than a Raspberry

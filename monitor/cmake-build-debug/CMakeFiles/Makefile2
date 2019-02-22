@@ -65,39 +65,39 @@ CMAKE_SOURCE_DIR = /home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/monitor
 CMAKE_BINARY_DIR = /home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/monitor/cmake-build-debug
 
 #=============================================================================
-# Target rules for target CMakeFiles/sensorapp.dir
+# Target rules for target CMakeFiles/monitor.dir
 
 # All Build rule for target.
-CMakeFiles/sensorapp.dir/all:
-	$(MAKE) -f CMakeFiles/sensorapp.dir/build.make CMakeFiles/sensorapp.dir/depend
-	$(MAKE) -f CMakeFiles/sensorapp.dir/build.make CMakeFiles/sensorapp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/monitor/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target sensorapp"
-.PHONY : CMakeFiles/sensorapp.dir/all
+CMakeFiles/monitor.dir/all:
+	$(MAKE) -f CMakeFiles/monitor.dir/build.make CMakeFiles/monitor.dir/depend
+	$(MAKE) -f CMakeFiles/monitor.dir/build.make CMakeFiles/monitor.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/monitor/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5 "Built target monitor"
+.PHONY : CMakeFiles/monitor.dir/all
 
 # Include target in all.
-all: CMakeFiles/sensorapp.dir/all
+all: CMakeFiles/monitor.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/sensorapp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/monitor/cmake-build-debug/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/sensorapp.dir/all
+CMakeFiles/monitor.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/monitor/cmake-build-debug/CMakeFiles 5
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/monitor.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/monitor/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/sensorapp.dir/rule
+.PHONY : CMakeFiles/monitor.dir/rule
 
 # Convenience name for target.
-sensorapp: CMakeFiles/sensorapp.dir/rule
+monitor: CMakeFiles/monitor.dir/rule
 
-.PHONY : sensorapp
-
-# clean rule for target.
-CMakeFiles/sensorapp.dir/clean:
-	$(MAKE) -f CMakeFiles/sensorapp.dir/build.make CMakeFiles/sensorapp.dir/clean
-.PHONY : CMakeFiles/sensorapp.dir/clean
+.PHONY : monitor
 
 # clean rule for target.
-clean: CMakeFiles/sensorapp.dir/clean
+CMakeFiles/monitor.dir/clean:
+	$(MAKE) -f CMakeFiles/monitor.dir/build.make CMakeFiles/monitor.dir/clean
+.PHONY : CMakeFiles/monitor.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/monitor.dir/clean
 
 .PHONY : clean
 

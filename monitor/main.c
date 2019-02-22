@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include "bbb_dht_read.h"
-#include "bbb_dht_read.c"
 #include "common_dht_read.h"
 #include "bbb_mmio.h"
 #include <unistd.h>
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wmissing-noreturn"
+
 int main() {
-/*    int sensor, gpio_base, gpio_number, result;
+    int sensor, gpio_base, gpio_number, result;
     float humidity = 0, temperature = 0;
     gpio_base = 1; //Header P8
     gpio_number = 13; //Pin 11
@@ -25,7 +27,7 @@ int main() {
         printf("Temperature %f\n", temperature);
         sleep(10);
     }
-    */
-    printf("howzit");
     return 0;
 }
+
+#pragma clang diagnostic pop
