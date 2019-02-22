@@ -59,45 +59,45 @@ RM = /snap/clion/61/bin/cmake/linux/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/app/DH11
+CMAKE_SOURCE_DIR = /home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/monitor
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/app/DH11/cmake-build-debug
+CMAKE_BINARY_DIR = /home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/monitor/cmake-build-debug
 
 #=============================================================================
-# Target rules for target CMakeFiles/DH11.dir
+# Target rules for target CMakeFiles/sensorapp.dir
 
 # All Build rule for target.
-CMakeFiles/DH11.dir/all:
-	$(MAKE) -f CMakeFiles/DH11.dir/build.make CMakeFiles/DH11.dir/depend
-	$(MAKE) -f CMakeFiles/DH11.dir/build.make CMakeFiles/DH11.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/app/DH11/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5 "Built target DH11"
-.PHONY : CMakeFiles/DH11.dir/all
+CMakeFiles/sensorapp.dir/all:
+	$(MAKE) -f CMakeFiles/sensorapp.dir/build.make CMakeFiles/sensorapp.dir/depend
+	$(MAKE) -f CMakeFiles/sensorapp.dir/build.make CMakeFiles/sensorapp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/monitor/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target sensorapp"
+.PHONY : CMakeFiles/sensorapp.dir/all
 
 # Include target in all.
-all: CMakeFiles/DH11.dir/all
+all: CMakeFiles/sensorapp.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/DH11.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/app/DH11/cmake-build-debug/CMakeFiles 5
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/DH11.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/app/DH11/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/DH11.dir/rule
+CMakeFiles/sensorapp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/monitor/cmake-build-debug/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/sensorapp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/monitor/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/sensorapp.dir/rule
 
 # Convenience name for target.
-DH11: CMakeFiles/DH11.dir/rule
+sensorapp: CMakeFiles/sensorapp.dir/rule
 
-.PHONY : DH11
-
-# clean rule for target.
-CMakeFiles/DH11.dir/clean:
-	$(MAKE) -f CMakeFiles/DH11.dir/build.make CMakeFiles/DH11.dir/clean
-.PHONY : CMakeFiles/DH11.dir/clean
+.PHONY : sensorapp
 
 # clean rule for target.
-clean: CMakeFiles/DH11.dir/clean
+CMakeFiles/sensorapp.dir/clean:
+	$(MAKE) -f CMakeFiles/sensorapp.dir/build.make CMakeFiles/sensorapp.dir/clean
+.PHONY : CMakeFiles/sensorapp.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/sensorapp.dir/clean
 
 .PHONY : clean
 

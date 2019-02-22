@@ -48,10 +48,10 @@ RM = /snap/clion/61/bin/cmake/linux/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/app/DH11
+CMAKE_SOURCE_DIR = /home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/monitor
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/app/DH11/cmake-build-debug
+CMAKE_BINARY_DIR = /home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/monitor/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/app/DH11/cmake-build-debug/CMakeFiles /home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/app/DH11/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/monitor/cmake-build-debug/CMakeFiles /home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/monitor/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/app/DH11/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/monitor/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,98 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named DH11
+# Target rules for targets named sensorapp
 
 # Build rule for target.
-DH11: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 DH11
-.PHONY : DH11
+sensorapp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sensorapp
+.PHONY : sensorapp
 
 # fast build rule for target.
-DH11/fast:
-	$(MAKE) -f CMakeFiles/DH11.dir/build.make CMakeFiles/DH11.dir/build
-.PHONY : DH11/fast
-
-bbb_dht_read.o: bbb_dht_read.c.o
-
-.PHONY : bbb_dht_read.o
-
-# target to build an object file
-bbb_dht_read.c.o:
-	$(MAKE) -f CMakeFiles/DH11.dir/build.make CMakeFiles/DH11.dir/bbb_dht_read.c.o
-.PHONY : bbb_dht_read.c.o
-
-bbb_dht_read.i: bbb_dht_read.c.i
-
-.PHONY : bbb_dht_read.i
-
-# target to preprocess a source file
-bbb_dht_read.c.i:
-	$(MAKE) -f CMakeFiles/DH11.dir/build.make CMakeFiles/DH11.dir/bbb_dht_read.c.i
-.PHONY : bbb_dht_read.c.i
-
-bbb_dht_read.s: bbb_dht_read.c.s
-
-.PHONY : bbb_dht_read.s
-
-# target to generate assembly for a file
-bbb_dht_read.c.s:
-	$(MAKE) -f CMakeFiles/DH11.dir/build.make CMakeFiles/DH11.dir/bbb_dht_read.c.s
-.PHONY : bbb_dht_read.c.s
-
-bbb_mmio.o: bbb_mmio.c.o
-
-.PHONY : bbb_mmio.o
-
-# target to build an object file
-bbb_mmio.c.o:
-	$(MAKE) -f CMakeFiles/DH11.dir/build.make CMakeFiles/DH11.dir/bbb_mmio.c.o
-.PHONY : bbb_mmio.c.o
-
-bbb_mmio.i: bbb_mmio.c.i
-
-.PHONY : bbb_mmio.i
-
-# target to preprocess a source file
-bbb_mmio.c.i:
-	$(MAKE) -f CMakeFiles/DH11.dir/build.make CMakeFiles/DH11.dir/bbb_mmio.c.i
-.PHONY : bbb_mmio.c.i
-
-bbb_mmio.s: bbb_mmio.c.s
-
-.PHONY : bbb_mmio.s
-
-# target to generate assembly for a file
-bbb_mmio.c.s:
-	$(MAKE) -f CMakeFiles/DH11.dir/build.make CMakeFiles/DH11.dir/bbb_mmio.c.s
-.PHONY : bbb_mmio.c.s
-
-common_dht_read.o: common_dht_read.c.o
-
-.PHONY : common_dht_read.o
-
-# target to build an object file
-common_dht_read.c.o:
-	$(MAKE) -f CMakeFiles/DH11.dir/build.make CMakeFiles/DH11.dir/common_dht_read.c.o
-.PHONY : common_dht_read.c.o
-
-common_dht_read.i: common_dht_read.c.i
-
-.PHONY : common_dht_read.i
-
-# target to preprocess a source file
-common_dht_read.c.i:
-	$(MAKE) -f CMakeFiles/DH11.dir/build.make CMakeFiles/DH11.dir/common_dht_read.c.i
-.PHONY : common_dht_read.c.i
-
-common_dht_read.s: common_dht_read.c.s
-
-.PHONY : common_dht_read.s
-
-# target to generate assembly for a file
-common_dht_read.c.s:
-	$(MAKE) -f CMakeFiles/DH11.dir/build.make CMakeFiles/DH11.dir/common_dht_read.c.s
-.PHONY : common_dht_read.c.s
+sensorapp/fast:
+	$(MAKE) -f CMakeFiles/sensorapp.dir/build.make CMakeFiles/sensorapp.dir/build
+.PHONY : sensorapp/fast
 
 main.o: main.c.o
 
@@ -210,7 +129,7 @@ main.o: main.c.o
 
 # target to build an object file
 main.c.o:
-	$(MAKE) -f CMakeFiles/DH11.dir/build.make CMakeFiles/DH11.dir/main.c.o
+	$(MAKE) -f CMakeFiles/sensorapp.dir/build.make CMakeFiles/sensorapp.dir/main.c.o
 .PHONY : main.c.o
 
 main.i: main.c.i
@@ -219,7 +138,7 @@ main.i: main.c.i
 
 # target to preprocess a source file
 main.c.i:
-	$(MAKE) -f CMakeFiles/DH11.dir/build.make CMakeFiles/DH11.dir/main.c.i
+	$(MAKE) -f CMakeFiles/sensorapp.dir/build.make CMakeFiles/sensorapp.dir/main.c.i
 .PHONY : main.c.i
 
 main.s: main.c.s
@@ -228,7 +147,7 @@ main.s: main.c.s
 
 # target to generate assembly for a file
 main.c.s:
-	$(MAKE) -f CMakeFiles/DH11.dir/build.make CMakeFiles/DH11.dir/main.c.s
+	$(MAKE) -f CMakeFiles/sensorapp.dir/build.make CMakeFiles/sensorapp.dir/main.c.s
 .PHONY : main.c.s
 
 # Help Target
@@ -238,17 +157,8 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... DH11"
+	@echo "... sensorapp"
 	@echo "... edit_cache"
-	@echo "... bbb_dht_read.o"
-	@echo "... bbb_dht_read.i"
-	@echo "... bbb_dht_read.s"
-	@echo "... bbb_mmio.o"
-	@echo "... bbb_mmio.i"
-	@echo "... bbb_mmio.s"
-	@echo "... common_dht_read.o"
-	@echo "... common_dht_read.i"
-	@echo "... common_dht_read.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

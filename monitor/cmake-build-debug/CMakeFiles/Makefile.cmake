@@ -9,8 +9,10 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "../CMakeLists.txt"
   "CMakeFiles/3.13.2/CMakeCCompiler.cmake"
+  "CMakeFiles/3.13.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.13.2/CMakeSystem.cmake"
   "/snap/clion/61/bin/cmake/linux/share/cmake-3.13/Modules/CMakeCInformation.cmake"
+  "/snap/clion/61/bin/cmake/linux/share/cmake-3.13/Modules/CMakeCXXInformation.cmake"
   "/snap/clion/61/bin/cmake/linux/share/cmake-3.13/Modules/CMakeCommonLanguageInclude.cmake"
   "/snap/clion/61/bin/cmake/linux/share/cmake-3.13/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake"
   "/snap/clion/61/bin/cmake/linux/share/cmake-3.13/Modules/CMakeFindCodeBlocks.cmake"
@@ -21,8 +23,10 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/snap/clion/61/bin/cmake/linux/share/cmake-3.13/Modules/CMakeSystemSpecificInitialize.cmake"
   "/snap/clion/61/bin/cmake/linux/share/cmake-3.13/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
   "/snap/clion/61/bin/cmake/linux/share/cmake-3.13/Modules/Compiler/GNU-C.cmake"
+  "/snap/clion/61/bin/cmake/linux/share/cmake-3.13/Modules/Compiler/GNU-CXX.cmake"
   "/snap/clion/61/bin/cmake/linux/share/cmake-3.13/Modules/Compiler/GNU.cmake"
   "/snap/clion/61/bin/cmake/linux/share/cmake-3.13/Modules/Platform/Linux-GNU-C.cmake"
+  "/snap/clion/61/bin/cmake/linux/share/cmake-3.13/Modules/Platform/Linux-GNU-CXX.cmake"
   "/snap/clion/61/bin/cmake/linux/share/cmake-3.13/Modules/Platform/Linux-GNU.cmake"
   "/snap/clion/61/bin/cmake/linux/share/cmake-3.13/Modules/Platform/Linux.cmake"
   "/snap/clion/61/bin/cmake/linux/share/cmake-3.13/Modules/Platform/UnixPaths.cmake"
@@ -42,5 +46,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/DH11.dir/DependInfo.cmake"
+  "CMakeFiles/sensorapp.dir/DependInfo.cmake"
   )
