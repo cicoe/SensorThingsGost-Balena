@@ -1,0 +1,90 @@
+{
+  "thing": {
+    "name": "BeagleBoneBlack",
+    "description": "Single Board Computer",
+    "properties": {
+      "model": "RevC",
+      "processor": "Cortex-A8",
+      "clock": "1GHz",
+      "memory": "512MB DDR3",
+      "storage": "4GB eMMC",
+      "network connection": "Ethernet"
+    },
+    "Locations": [
+      {
+        "name": "Embedded Systems Lab",
+        "encodingType": "application/vnd.geo+json",
+        "description": "Center for Research Computing, University of Notre Dame",
+        "location": {
+          "coordinates": [
+            41.704681,
+            -86.2355368
+          ],
+          "type": "Point"
+        }
+      }
+    ]
+  },
+  "observed_property": {
+    "name": "Temperature",
+    "description": "Temperature",
+    "definition": "https://en.wikipedia.org/wiki/Temperature"
+  },
+  "observed_property": {
+    "name": "Relative Humidity",
+    "description": "Relative Humidity",
+    "definition": "https://en.wikipedia.org/wiki/Relative_humidity"
+  },
+  "sensor": {
+    "name": "DHT11",
+    "encodingType": "application/pdf",
+    "metadata": "https://www.mouser.com/ds/2/758/DHT11-Technical-Data-Sheet-Translated-Version-1143054.pdf",
+    "description": "KY-015 DHT11 Temperature and Humidity sensor"
+  },
+  "datastream": {
+    "name": "Temperature",
+    "unitOfMeasurement": {
+      "name": "Celcius",
+      "symbol": "C",
+      "definition": "https://en.wikipedia.org/wiki/Temperature"
+    },
+    "Thing": {
+      "@iot.id": ""
+    },
+    "description": "This datastream is the current temperature in room 318 FLanner Hall University of Notre Dame",
+    "Sensor": {
+      "@iot.id": ""
+    },
+    "ObservedProperty": {
+      "@iot.id": ""
+    },
+    "observationType": "http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_CountObservation"
+  },
+  "datastream": {
+    "name": "Relative Humidity",
+    "unitOfMeasurement": {
+      "name": "Percentage",
+      "symbol": "%",
+      "definition": "https://en.wikipedia.org/wiki/Relative_humidity"
+    },
+    "Thing": {
+      "@iot.id": ""
+    },
+    "description": "This datastream is the current relative humidity in room 318 FLanner Hall University of Notre Dame",
+    "Sensor": {
+      "@iot.id": ""
+    },
+    "ObservedProperty": {
+      "@iot.id": ""
+    },
+    "observationType": "http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_CountObservation"
+  },
+  "observation": {
+    "result": "",
+    "Datastream": {
+      "@iot.id": ""
+    }
+  }
+}
+
+

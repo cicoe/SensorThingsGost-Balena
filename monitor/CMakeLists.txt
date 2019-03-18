@@ -1,15 +1,14 @@
 cmake_minimum_required(VERSION 3.13)
-project(monitor C)
+project(monitor)
 
-set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lcurl")
 
 include_directories(.)
+include_directories(DHT11)
+include_directories(IO)
+add_subdirectory(IO)
+add_subdirectory(DHT11)
 
-add_executable(monitor
-        bbb_dht_read.c
-        bbb_dht_read.h
-        bbb_mmio.c
-        bbb_mmio.h
-        common_dht_read.c
-        common_dht_read.h
-        main.c)
+add_executable(monitor main.c)
+target_link_libraries(monitor STinterface DHT11 curl )

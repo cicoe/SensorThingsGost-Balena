@@ -123,86 +123,31 @@ monitor/fast:
 	$(MAKE) -f CMakeFiles/monitor.dir/build.make CMakeFiles/monitor.dir/build
 .PHONY : monitor/fast
 
-bbb_dht_read.o: bbb_dht_read.c.o
+#=============================================================================
+# Target rules for targets named STinterface
 
-.PHONY : bbb_dht_read.o
+# Build rule for target.
+STinterface: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 STinterface
+.PHONY : STinterface
 
-# target to build an object file
-bbb_dht_read.c.o:
-	$(MAKE) -f CMakeFiles/monitor.dir/build.make CMakeFiles/monitor.dir/bbb_dht_read.c.o
-.PHONY : bbb_dht_read.c.o
+# fast build rule for target.
+STinterface/fast:
+	$(MAKE) -f IO/CMakeFiles/STinterface.dir/build.make IO/CMakeFiles/STinterface.dir/build
+.PHONY : STinterface/fast
 
-bbb_dht_read.i: bbb_dht_read.c.i
+#=============================================================================
+# Target rules for targets named DHT11
 
-.PHONY : bbb_dht_read.i
+# Build rule for target.
+DHT11: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 DHT11
+.PHONY : DHT11
 
-# target to preprocess a source file
-bbb_dht_read.c.i:
-	$(MAKE) -f CMakeFiles/monitor.dir/build.make CMakeFiles/monitor.dir/bbb_dht_read.c.i
-.PHONY : bbb_dht_read.c.i
-
-bbb_dht_read.s: bbb_dht_read.c.s
-
-.PHONY : bbb_dht_read.s
-
-# target to generate assembly for a file
-bbb_dht_read.c.s:
-	$(MAKE) -f CMakeFiles/monitor.dir/build.make CMakeFiles/monitor.dir/bbb_dht_read.c.s
-.PHONY : bbb_dht_read.c.s
-
-bbb_mmio.o: bbb_mmio.c.o
-
-.PHONY : bbb_mmio.o
-
-# target to build an object file
-bbb_mmio.c.o:
-	$(MAKE) -f CMakeFiles/monitor.dir/build.make CMakeFiles/monitor.dir/bbb_mmio.c.o
-.PHONY : bbb_mmio.c.o
-
-bbb_mmio.i: bbb_mmio.c.i
-
-.PHONY : bbb_mmio.i
-
-# target to preprocess a source file
-bbb_mmio.c.i:
-	$(MAKE) -f CMakeFiles/monitor.dir/build.make CMakeFiles/monitor.dir/bbb_mmio.c.i
-.PHONY : bbb_mmio.c.i
-
-bbb_mmio.s: bbb_mmio.c.s
-
-.PHONY : bbb_mmio.s
-
-# target to generate assembly for a file
-bbb_mmio.c.s:
-	$(MAKE) -f CMakeFiles/monitor.dir/build.make CMakeFiles/monitor.dir/bbb_mmio.c.s
-.PHONY : bbb_mmio.c.s
-
-common_dht_read.o: common_dht_read.c.o
-
-.PHONY : common_dht_read.o
-
-# target to build an object file
-common_dht_read.c.o:
-	$(MAKE) -f CMakeFiles/monitor.dir/build.make CMakeFiles/monitor.dir/common_dht_read.c.o
-.PHONY : common_dht_read.c.o
-
-common_dht_read.i: common_dht_read.c.i
-
-.PHONY : common_dht_read.i
-
-# target to preprocess a source file
-common_dht_read.c.i:
-	$(MAKE) -f CMakeFiles/monitor.dir/build.make CMakeFiles/monitor.dir/common_dht_read.c.i
-.PHONY : common_dht_read.c.i
-
-common_dht_read.s: common_dht_read.c.s
-
-.PHONY : common_dht_read.s
-
-# target to generate assembly for a file
-common_dht_read.c.s:
-	$(MAKE) -f CMakeFiles/monitor.dir/build.make CMakeFiles/monitor.dir/common_dht_read.c.s
-.PHONY : common_dht_read.c.s
+# fast build rule for target.
+DHT11/fast:
+	$(MAKE) -f DHT11/CMakeFiles/DHT11.dir/build.make DHT11/CMakeFiles/DHT11.dir/build
+.PHONY : DHT11/fast
 
 main.o: main.c.o
 
@@ -240,15 +185,8 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... monitor"
 	@echo "... edit_cache"
-	@echo "... bbb_dht_read.o"
-	@echo "... bbb_dht_read.i"
-	@echo "... bbb_dht_read.s"
-	@echo "... bbb_mmio.o"
-	@echo "... bbb_mmio.i"
-	@echo "... bbb_mmio.s"
-	@echo "... common_dht_read.o"
-	@echo "... common_dht_read.i"
-	@echo "... common_dht_read.s"
+	@echo "... STinterface"
+	@echo "... DHT11"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

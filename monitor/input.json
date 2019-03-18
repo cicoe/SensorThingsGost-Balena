@@ -1,0 +1,64 @@
+{
+  "thing": {
+    "name": "Bikestation Harvard University Gund Hall at Quincy St / Kirkland S",
+    "description": "Bike station Harvard University Gund Hall at Quincy St / Kirkland S",
+    "properties": {
+      "station_id": "110",
+      "short_name": "M32021",
+      "region_id": "8",
+      "capacity": "15"
+    },
+    "Locations": [
+      {
+        "name": "Bikestation Harvard University Gund Hall at Quincy St / Kirkland S",
+        "encodingType": "application/vnd.geo+json",
+        "description": "Bikestation Harvard University Gund Hall at Quincy St / Kirkland S",
+        "location": {
+          "coordinates": [
+            -71.114025,
+            42.376369
+          ],
+          "type": "Point"
+        }
+      }
+    ]
+  },
+  "observed_property": {
+    "name": "Number of bikes",
+    "description": "Number of bikes",
+    "definition": "https://en.wikipedia.org/wiki/Bicycle"
+  },
+  "sensor": {
+    "name": "num_bikes_available",
+    "encodingType": "application/pdf",
+    "metadata": "Number of bikes available",
+    "description": "Number of bikes available"
+  },
+  "datastream": {
+    "name": "Number of bikes available datastream Harvard University Gund Hall at Quincy St / Kirkland S",
+    "unitOfMeasurement": {
+      "name": "",
+      "symbol": "",
+      "definition": ""
+    },
+    "Thing": {
+      "@iot.id": "XXX"
+    },
+    "description": "This is a datastream for number of free bikes at Harvard University Gund Hall at Quincy St / Kirkland S",
+    "Sensor": {
+      "@iot.id": "XXX"
+    },
+    "ObservedProperty": {
+      "@iot.id": "XXX"
+    },
+    "observationType": "http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_CountObservation"
+  },
+  "observation": {
+    "result": 1,
+    "Datastream": {
+      "@iot.id": "XXX"
+    }
+  }
+}
+
+

@@ -1,3 +1,9 @@
 /home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/monitor/cmake-build-debug/CMakeFiles/rebuild_cache.dir
 /home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/monitor/cmake-build-debug/CMakeFiles/monitor.dir
 /home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/monitor/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/monitor/cmake-build-debug/IO/CMakeFiles/rebuild_cache.dir
+/home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/monitor/cmake-build-debug/IO/CMakeFiles/STinterface.dir
+/home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/monitor/cmake-build-debug/IO/CMakeFiles/edit_cache.dir
+/home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/monitor/cmake-build-debug/DHT11/CMakeFiles/rebuild_cache.dir
+/home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/monitor/cmake-build-debug/DHT11/CMakeFiles/DHT11.dir
+/home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/monitor/cmake-build-debug/DHT11/CMakeFiles/edit_cache.dir
