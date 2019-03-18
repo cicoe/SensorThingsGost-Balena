@@ -11,11 +11,12 @@ RUN apt-get -q update && apt-get install -yq --no-install-recommends \
 WORKDIR /usr/src/app
 COPY . /usr/src/app
 #RUN gcc -I./monitor -o sensorapp ./monitor/*.c
-RUN cmake --build ./monitor/cmake-build-debug --target all -- -j 1
+RUN cmake ./monitor
+RUN make
 
 # Switch to operational container
 FROM balenalib/beaglebone-black-debian:stretch
-COPY --from=build /usr/src/app/cmake-build-debug/monitor monitor
+COPY --from=build /usr/src/app/monitor monitor
 
 #switch on systemd init system in container
 ENV INITSYSTEM on
