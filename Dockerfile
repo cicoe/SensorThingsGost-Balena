@@ -14,7 +14,7 @@ COPY . /usr/src/app
 RUN mkdir /usr/src/app/build
 WORKDIR /usr/src/app/build
 
-RUN cmake ./monitor
+RUN cmake ../monitor
 RUN make
 
 # Switch to operational container
