@@ -54,20 +54,23 @@ int main() {
     cJSON_ReplaceItemInObject(cJSON_GetObjectItem(aobs, "Datastream"), "@iot.id", datastream_id);
 
     //Loop posting observations
-//    for (int i =0;i<10;i++){
     int read_s = 0;
+    int err_count = 0;
     while (1) {
 //        read_s = read_sensor(aobs);
         read_s = read_sensor_DHT(aobs);
         if (read_s != 0) {
             printf("Error reading sensor");
-//            break;
+            err_count +=1;
         }
-//        printf("\n%s", cJSON_Print(aobs));
 
         post_ST(aobs, "http://129.74.246.19:8080/v1.0/Observations");
 
         cJSON_DeleteItemFromObject(aobs, "result");
+        if (err_count >=100){
+            printf("Too many bad reads, exiting");
+            break;
+        }
     }
 
     printf("\n\nGoing to free mem now");
