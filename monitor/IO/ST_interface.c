@@ -193,12 +193,12 @@ cJSON *post_ST(cJSON *payload, const char *destination) {
         curl_easy_setopt(handle, CURLOPT_POSTFIELDS, cJSON_Print(payload));
         curl_easy_setopt(handle, CURLOPT_WRITEFUNCTION, writefunc);
         curl_easy_setopt(handle, CURLOPT_WRITEDATA, &rs);
-        printf("\n\n I'm in func\n\n");
+//        printf("\n\n I'm in func\n\n");
 
 // TODO raise error on not OK response
         ret = curl_easy_perform(handle);
-        printf("\n\nCurl return %s [%d]\n\n",curl_easy_strerror(ret),ret);
-        printf("\n\n I'm in func3\n\n");
+//        printf("\n\nCurl return %s [%d]\n\n",curl_easy_strerror(ret),ret);
+//        printf("\n\n I'm in func3\n\n");
         cJSON *json = cJSON_Parse(rs.ptr);
 
 //        printf("\n%s",rs.ptr);
@@ -217,7 +217,7 @@ cJSON *post_ST(cJSON *payload, const char *destination) {
 int read_sensor(cJSON *observation) {
     //Return fake value for testing
     char str[16];
-    float f = 54.7;
+    float f = 102.7;
     snprintf(str, sizeof(str), "%.2f", f);
     if (cJSON_AddStringToObject(observation, "result", str) == NULL) {
         printf("Error creating observation from sensor reading");
