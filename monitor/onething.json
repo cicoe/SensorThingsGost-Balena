@@ -1,3 +1,4 @@
+//
 {
   "thing": {
     "name": "BeagleBoneBlack",
@@ -27,7 +28,7 @@
   },
   "observed_property": {
     "name": "Temperature",
-    "description": "Temperature",
+//    "description": "Temperature",
     "definition": "https://en.wikipedia.org/wiki/Temperature"
   },
   "observed_property": {

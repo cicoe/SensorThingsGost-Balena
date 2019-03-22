@@ -62,15 +62,15 @@ int main() {
         if (read_s != 0) {
             printf("Error reading sensor");
             err_count +=1;
+            continue;
         }
-
-        post_ST(aobs, "http://129.74.246.19:8080/v1.0/Observations");
 
         cJSON_DeleteItemFromObject(aobs, "result");
         if (err_count >=100){
             printf("Too many bad reads, exiting");
             break;
         }
+        post_ST(aobs, "http://129.74.246.19:8080/v1.0/Observations");
     }
 
     printf("\n\nGoing to free mem now");

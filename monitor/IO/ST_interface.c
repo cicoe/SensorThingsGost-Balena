@@ -237,8 +237,6 @@ int read_sensor_DHT(cJSON *observation) {
     result = bbb_dht_read(DHT11, gpio_base, gpio_number, &humidity, &temperature);
 
     printf("\n\nResult: %d\n\n",result);
-    printf("\n\nHumidity: %f\n\n",humidity);
-    printf("\n\nTemp: %f\n\n",temperature);
 
     //Try read until a result if read
     while (result == 0) {
