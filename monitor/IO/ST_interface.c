@@ -193,14 +193,15 @@ cJSON *post_ST(cJSON *payload, const char *destination) {
         curl_easy_setopt(handle, CURLOPT_POSTFIELDS, cJSON_Print(payload));
         curl_easy_setopt(handle, CURLOPT_WRITEFUNCTION, writefunc);
         curl_easy_setopt(handle, CURLOPT_WRITEDATA, &rs);
+        printf("\n\n I'm in func\n\n");
 
 // TODO raise error on not OK response
         ret = curl_easy_perform(handle);
+        printf("\n\nCurl return %s [%d]\n\n",curl_easy_strerror(ret),ret);
+        printf("\n\n I'm in func3\n\n");
         cJSON *json = cJSON_Parse(rs.ptr);
 
-//        printf("\n\n----------------------------------------------\n\n");
 //        printf("\n%s",rs.ptr);
-//        printf("\n\n----------------------------------------------\n\n");
 
         free(rs.ptr);
         curl_easy_cleanup(handle);
@@ -209,7 +210,7 @@ cJSON *post_ST(cJSON *payload, const char *destination) {
         cJSON *id = cJSON_GetObjectItem(json, "@iot.id");
         int iotid = id->valueint;
 
-        return id;
+    return id;
     }
 }
 

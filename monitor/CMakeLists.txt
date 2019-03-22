@@ -5,8 +5,9 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lcurl")
 
 include_directories(.)
-include_directories(DHT11)
-include_directories(IO)
+#include_directories(/usr/include/x86_64-linux-gnu/curl)
+#include_directories(DHT11)
+#include_directories(IO)
 add_subdirectory(IO)
 add_subdirectory(DHT11)
 

@@ -33,7 +33,8 @@ int main() {
 
     //Post a thing
     cJSON *thing_id = post_ST(athing, "http://129.74.246.19:8080/v1.0/Things");
-    printf("\nLD thing posted, ID: %d", thing_id->valueint);
+    printf("\nPosted thing");
+    /*
 
     //Post a sensor
     cJSON *sensor_id = post_ST(asensor, "http://129.74.246.19:8080/v1.0/Sensors");
@@ -54,9 +55,9 @@ int main() {
     cJSON_ReplaceItemInObject(cJSON_GetObjectItem(aobs, "Datastream"), "@iot.id", datastream_id);
 
     //Loop posting observations
-//    for (int i =0;i<10;i++){
+    for (int i =0;i<10;i++){
     int read_s = 0;
-    while (1) {
+//    while (1) {
         read_s = read_sensor(aobs);
 //    read_s = read_sensor_DHT(aobs);
         if (read_s != 0) {
@@ -69,13 +70,14 @@ int main() {
 
         cJSON_DeleteItemFromObject(aobs, "result");
     }
+*/
 
+    printf("\n\nGoing to free mem now");
     free(file_str);
     cJSON_Delete(athing);
     cJSON_Delete(adatastream);
     cJSON_Delete(asensor);
     cJSON_Delete(aobs);
-
-    printf("\n\nDone");
+    printf("\n\nDone\n\n");
     return 0;
 }
