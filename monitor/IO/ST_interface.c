@@ -254,4 +254,4 @@ int read_sensor_DHT(cJSON *observation) {
         return 1;
     }
     return 0;
-,}
+}
