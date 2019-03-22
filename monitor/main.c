@@ -61,7 +61,7 @@ int main() {
         read_s = read_sensor_DHT(aobs);
         if (read_s != 0) {
             printf("Error reading sensor");
-            break;
+//            break;
         }
 //        printf("\n%s", cJSON_Print(aobs));
 

@@ -230,24 +230,22 @@ int read_sensor_DHT(cJSON *observation) {
     //TODO make a more general way of accessing sensor read - callback perhaps
     char str[16];
     int sensor, gpio_base, gpio_number, result;
-    result = 0;
+    int result = 0;
     float humidity = 0, temperature = 0;
     gpio_base = 1; //Header P8
     gpio_number = 13; //Pin 11
-
-    //Try read until a result if read
-    while (result != 0) {
-
-        result = bbb_dht_read(DHT11, gpio_base, gpio_number, &humidity, &temperature);
-        printf("\n\nResult: %d\n\n",result);
-        if (result == 0) {
-            break;
-        }
-    }
-    printf("Sucessfully read");
+    result = bbb_dht_read(DHT11, gpio_base, gpio_number, &humidity, &temperature);
     printf("\n\nResult: %d\n\n",result);
     printf("\n\nHumidity: %f\n\n",humidity);
     printf("\n\nTemp: %f\n\n",temperature);
+
+    //Try read until a result if read
+//    while (result == 0) {
+
+//        if (result == 0) {
+//            continue;
+//        }
+//    }
 
     snprintf(str, sizeof(str), "%.2f", temperature);
 
@@ -255,5 +253,5 @@ int read_sensor_DHT(cJSON *observation) {
         printf("Error creating observation from sensor reading");
         return 1;
     }
-    return 0;
-}
+    return result;
+,}
