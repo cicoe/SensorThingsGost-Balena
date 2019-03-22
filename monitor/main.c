@@ -59,6 +59,7 @@ int main() {
     while (1) {
 //        read_s = read_sensor(aobs);
         read_s = read_sensor_DHT(aobs);
+        printf(aobs);
         if (read_s != 0) {
             printf("Error reading sensor");
             break;
