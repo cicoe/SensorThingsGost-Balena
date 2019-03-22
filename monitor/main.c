@@ -57,8 +57,8 @@ int main() {
 //    for (int i =0;i<10;i++){
     int read_s = 0;
     while (1) {
-        read_s = read_sensor(aobs);
-//    read_s = read_sensor_DHT(aobs);
+//        read_s = read_sensor(aobs);
+        read_s = read_sensor_DHT(aobs);
         if (read_s != 0) {
             printf("Error reading sensor");
             break;
