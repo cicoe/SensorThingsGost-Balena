@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <unistd.h>
 #include <stdlib.h>
 #include <curl/curl.h>
 #include <tgmath.h>
@@ -15,6 +16,13 @@
  */
 
 int main() {
+    unsigned int microseconds = 10000000;
+    while (1){
+        printf("\nMolweni\n");
+        usleep(microseconds);
+    }
+
+    /*
     char *file_str = NULL;
     char *filename = FILENAME;
     char *ST_ID = "000\0";
@@ -81,4 +89,5 @@ int main() {
     cJSON_Delete(aobs);
     printf("\n\nDone\n\n");
     return 0;
+*/
 }

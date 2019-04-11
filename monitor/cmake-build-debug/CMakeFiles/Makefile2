@@ -50,10 +50,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/61/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/67/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/61/bin/cmake/linux/bin/cmake -E remove -f
+RM = /snap/clion/67/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -68,8 +68,8 @@ CMAKE_BINARY_DIR = /home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/monitor/cmake-bui
 # Target rules for target CMakeFiles/monitor.dir
 
 # All Build rule for target.
-CMakeFiles/monitor.dir/all: IO/CMakeFiles/STinterface.dir/all
 CMakeFiles/monitor.dir/all: DHT11/CMakeFiles/DHT11.dir/all
+CMakeFiles/monitor.dir/all: IO/CMakeFiles/STinterface.dir/all
 	$(MAKE) -f CMakeFiles/monitor.dir/build.make CMakeFiles/monitor.dir/depend
 	$(MAKE) -f CMakeFiles/monitor.dir/build.make CMakeFiles/monitor.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jwyngaard/Work/NEON_CiCoE18/ST_Beagle/monitor/cmake-build-debug/CMakeFiles --progress-num=8,9 "Built target monitor"

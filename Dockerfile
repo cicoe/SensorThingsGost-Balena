@@ -13,16 +13,25 @@ COPY . /usr/src/app
 
 RUN mkdir /usr/src/app/build
 WORKDIR /usr/src/app/build
+RUN pwd
+RUN ls
 RUN cmake ../monitor
 RUN make
+RUN ls
 
 # Switch to operational container
 FROM balenalib/beaglebone-black-debian:stretch
+RUN pwd
 COPY --from=build /usr/src/app/build/monitor monitor
+RUN ls
 COPY --from=build /usr/src/app/monitor/* ./
+RUN ls
 
 #switch on systemd init system in container
 ENV INITSYSTEM on
 
 # Run binary on container startup
+RUN pwd
+
+RUN ls
 CMD ./monitor
