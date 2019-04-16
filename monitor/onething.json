@@ -51,7 +51,7 @@
     "Thing": {
       "@iot.id": ""
     },
-    "description": "This datastream is the current temperature in room 318 FLanner Hall University of Notre Dame",
+    "description": "Current temperature in room 318 FLanner Hall University of Notre Dame",
     "Sensor": {
       "@iot.id": ""
     },
@@ -70,7 +70,7 @@
     "Thing": {
       "@iot.id": ""
     },
-    "description": "This datastream is the current relative humidity in room 318 FLanner Hall University of Notre Dame",
+    "description": "Current relative humidity in room 318 Flanner Hall University of Notre Dame",
     "Sensor": {
       "@iot.id": ""
     },
