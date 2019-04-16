@@ -27,6 +27,7 @@
   },
   "observed_property": {
     "name": "Temperature",
+    "description": "Temperature in degrees Celcius",
     "definition": "https://en.wikipedia.org/wiki/Temperature"
   },
   "observed_property": {

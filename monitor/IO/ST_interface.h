@@ -17,7 +17,7 @@ void init_result_string(struct result_string *rs);
 size_t writefunc(void *ptr, size_t size, size_t nmemb, struct result_string *rs);
 cJSON * post_ST (cJSON * payload, const char * destination);
 int create_aobservation (cJSON * aobs);
-int read_sensor(cJSON * observation);
+int read_sensor_dummy(cJSON * observation);
 int read_sensor_DHT(cJSON * observation);
 
 

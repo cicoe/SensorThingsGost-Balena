@@ -56,9 +56,11 @@ printf("\nPosted thing");
 
 //Post a sensor
 cJSON *sensor_id = post_ST(asensor, "http://129.74.246.19:8080/v1.0/Sensors");
+printf("\nPosted sensor");
 
 //Post an observed property
 cJSON *obsprop_id = post_ST(aobsproperty, "http://129.74.246.19:8080/v1.0/ObservedProperties");
+printf("\nPosted a obs prop");
 
 
 //Post a datastream by inserting thing, obsprop, and sensor ids into json
@@ -66,9 +68,11 @@ cJSON_ReplaceItemInObject(cJSON_GetObjectItem(adatastream, "Thing"), "@iot.id", 
 cJSON_ReplaceItemInObject(cJSON_GetObjectItem(adatastream, "Sensor"), "@iot.id", sensor_id);
 cJSON_ReplaceItemInObject(cJSON_GetObjectItem(adatastream, "ObservedProperty"), "@iot.id", obsprop_id);
 cJSON *datastream_id = post_ST(adatastream, "http://129.74.246.19:8080/v1.0/Datastreams");
+printf("\nPosted a datastream");
 
 //Create an observation cJSON object > insert a datastream id
 create_aobservation(aobs);
+printf("\nPosted a observation");
 
 cJSON_ReplaceItemInObject(cJSON_GetObjectItem(aobs, "Datastream"), "@iot.id", datastream_id);
 
@@ -77,10 +81,12 @@ int read_s = 0;
 int misread_count=0;
 while (1) {
 
-//        read_s = read_sensor(aobs);
+    printf("\nUnjani");
+//      read_s = read_sensor_dummy(aobs);
     read_s = read_sensor_DHT(aobs);
-
-    cJSON_DeleteItemFromObject(aobs, "result");
+    printf("\nuxolo");
+    printf("\nNdisafunda ukuthetha isiXhosa");
+//    cJSON_DeleteItemFromObject(aobs, "result");
     post_ST(aobs, "http://129.74.246.19:8080/v1.0/Observations");
 
     if (read_s !=0){
@@ -91,6 +97,7 @@ while (1) {
         printf("Too many misreads, suspending operation and closing application");
         break;
     }
+    sleep(1);
 }
 
 printf("\n\nGoing to free mem now");
