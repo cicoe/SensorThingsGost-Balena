@@ -6,33 +6,26 @@
 #include <DHT11/bbb_dht_read.h>
 #include "cJSON.h"
 #include "ST_interface.h"
-
+//#define SIMPLE
 #define FILENAME "onething.json"
 
 /*
  * TODO Feature of Interest?
  * TODO Add fuller ST json verification
  * TODO Add proper Error handling
+ * TODO Generalise to Read in Unknown Number of things etc
  * TODO swap out loop for MQTT stream
  */
 
 int main() {
-/*
+
+#ifdef SIMPLE*
+
     while (1) {
         printf("\nMolweni\n");
-
-        result = bbb_dht_read(DHT11, gpio_base, gpio_number, &humidity, &temperature);
-
-        //Read timed out skip and try again
-        if (result != 0) {
-            continue;
-        }
-
-        printf("Humidity %f\n", humidity);
-        printf("Temperature %f\n", temperature);
         sleep(1);
     }
-*/
+#else
 
 char *file_str = NULL;
 char *filename = FILENAME;
@@ -40,15 +33,16 @@ char *ST_ID = "000\0";
 
 cJSON *athing = NULL;
 cJSON *aobsproperty = NULL;
-cJSON *adatastream = NULL;
+cJSON *datastream0 = NULL;
+cJSON *datastream1 = NULL;
 cJSON *asensor = NULL;
 cJSON *aobs = cJSON_CreateObject();
 
 //Read in json file
 read_json(&file_str, filename);
 
-// Parse json into thing, datastream, sensor
-parse_json(&file_str, &athing, &adatastream, &asensor, &aobsproperty);
+// Parse json into thing, datastream0, datastream1, sensor
+parse_json(&file_str, &athing, &datastream0, &datastream1, &asensor, &aobsproperty);
 
 //Post a thing
 cJSON *thing_id = post_ST(athing, "http://129.74.246.19:8080/v1.0/Things");
@@ -62,13 +56,19 @@ printf("\nPosted sensor");
 cJSON *obsprop_id = post_ST(aobsproperty, "http://129.74.246.19:8080/v1.0/ObservedProperties");
 printf("\nPosted a obs prop");
 
+//Post datastream0 by inserting thing, obsprop, and sensor ids into json
+cJSON_ReplaceItemInObject(cJSON_GetObjectItem(datastream0, "Thing"), "@iot.id", thing_id);
+cJSON_ReplaceItemInObject(cJSON_GetObjectItem(datastream0, "Sensor"), "@iot.id", sensor_id);
+cJSON_ReplaceItemInObject(cJSON_GetObjectItem(datastream0, "ObservedProperty"), "@iot.id", obsprop_id);
+cJSON *datastream_id = post_ST(datastream0, "http://129.74.246.19:8080/v1.0/Datastreams");
+printf("\nPosted datastream0");
 
-//Post a datastream by inserting thing, obsprop, and sensor ids into json
-cJSON_ReplaceItemInObject(cJSON_GetObjectItem(adatastream, "Thing"), "@iot.id", thing_id);
-cJSON_ReplaceItemInObject(cJSON_GetObjectItem(adatastream, "Sensor"), "@iot.id", sensor_id);
-cJSON_ReplaceItemInObject(cJSON_GetObjectItem(adatastream, "ObservedProperty"), "@iot.id", obsprop_id);
-cJSON *datastream_id = post_ST(adatastream, "http://129.74.246.19:8080/v1.0/Datastreams");
-printf("\nPosted a datastream");
+//Post datastream1 by inserting thing, obsprop, and sensor ids into json
+    cJSON_ReplaceItemInObject(cJSON_GetObjectItem(datastream1, "Thing"), "@iot.id", thing_id);
+    cJSON_ReplaceItemInObject(cJSON_GetObjectItem(datastream1, "Sensor"), "@iot.id", sensor_id);
+    cJSON_ReplaceItemInObject(cJSON_GetObjectItem(datastream1, "ObservedProperty"), "@iot.id", obsprop_id);
+    cJSON *datastream_id = post_ST(datastream1, "http://129.74.246.19:8080/v1.0/Datastreams");
+    printf("\nPosted datastream1");
 
 //Create an observation cJSON object > insert a datastream id
 create_aobservation(aobs);
@@ -81,8 +81,8 @@ int read_s = 0;
 int misread_count=0;
 while (1) {
 
-//      read_s = read_sensor_dummy(aobs);
-    read_s = read_sensor_DHT(aobs);
+      read_s = read_sensor_dummy(aobs);
+//    read_s = read_sensor_DHT(aobs);
     post_ST(aobs, "http://129.74.246.19:8080/v1.0/Observations");
 
     if (read_s !=0){
@@ -95,13 +95,14 @@ while (1) {
     }
     sleep(5*60);
 }
-
+*/
 printf("\n\nGoing to free mem now");
 free(file_str);
-cJSON_Delete(athing);
-cJSON_Delete(adatastream);
-cJSON_Delete(asensor);
-cJSON_Delete(aobs);
+//cJSON_Delete(athing);
+cJSON_Delete(datastream0);
+cJSON_Delete(datastream1);
+//cJSON_Delete(asensor);
+//cJSON_Delete(aobs);
 printf("\n\nDone\n\n");
 return 0;
 

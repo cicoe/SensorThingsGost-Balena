@@ -10,6 +10,7 @@ struct result_string {
 
 void read_json (char ** jsonstr, char *fname);
 void parse_json (char ** json_str, cJSON ** thing, cJSON ** datastream, cJSON ** sensor, cJSON ** observedproperty);
+void parse_json2 (char ** json_str, cJSON ** datastream0, cJSON ** datastream1);
 int valid_thing(cJSON * one_thing);
 int valid_datastream(cJSON * one_datastream);
 int valid_sensor(cJSON * one_sensor);

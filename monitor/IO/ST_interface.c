@@ -72,7 +72,6 @@ int valid_datastream(cJSON *one_datastream) {
 }
 
 int valid_sensor(cJSON *one_sensor) {
-    //TODO check metadata correctly
     if (cJSON_IsObject(one_sensor) && (one_sensor->child != NULL)) {
         const cJSON *name = cJSON_GetObjectItem(one_sensor, "name");
         const cJSON *description = cJSON_GetObjectItem(one_sensor, "description");
@@ -92,7 +91,7 @@ int valid_sensor(cJSON *one_sensor) {
     return 0;
 }
 
-void parse_json(char **json_str, cJSON **thing, cJSON **datastream, cJSON **sensor, cJSON **obsproperty) {
+void parse_json2(char ** json_str, cJSON **datastream0, cJSON **datastream1) {
     //Separate json into strings of things, datastreams, and sensors
 
     if (*json_str) {
@@ -106,26 +105,21 @@ void parse_json(char **json_str, cJSON **thing, cJSON **datastream, cJSON **sens
             }
             goto end;
         }
-        // Pull out a thing, check it's valid, return it
-        cJSON *th = cJSON_GetObjectItem(json, "thing");
-        if (valid_thing(th) != 0) { goto end; }
-        *thing = cJSON_Duplicate(th, 1);
+        // Pull out datastreams checking each are valid, currently looks for 2
+        //TODO generalise to any number of datastreams
 
-        // Pull out a datastream, check it's valid, return it
-        cJSON *ds = cJSON_GetObjectItem(json, "datastream");
-        if (valid_datastream(ds) != 0) { goto end; }
-        *datastream = cJSON_Duplicate(ds, 1);
+        cJSON *ds0 = cJSON_GetObjectItem(json, "datastream");
+        if (valid_datastream(ds0) != 0) { goto end; }
+        *datastream0 = cJSON_Duplicate(ds0, 1);
 
-        // Pull out a sensor, check it's valid, return it
-        cJSON *ss = cJSON_GetObjectItem(json, "sensor");
-        if (valid_sensor(ss) != 0) { goto end; }
-        *sensor = cJSON_Duplicate(ss, 1);
+        cJSON_DeleteItemFromObjectCaseSensitive(json,"datastream");
 
-        // Pull out an obsproperty, check it's valid, return it
-        cJSON *op = cJSON_GetObjectItem(json, "observed_property");
-        // TODO check valid observed property
-//        if (valid_sensor(ss) != 0){ goto end; }
-        *obsproperty = cJSON_Duplicate(op, 1);
+        cJSON *ds1 = cJSON_GetObjectItem(json, "datastream");
+        if (valid_datastream(ds1) != 0) { goto end; }
+        *datastream1 = cJSON_Duplicate(ds1, 1);
+        cJSON_DeleteItemFromObjectCaseSensitive(json,"datastream");
+
+
 
         end:
         cJSON_Delete(json);
