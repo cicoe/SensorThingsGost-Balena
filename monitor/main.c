@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <curl/curl.h>
 #include <tgmath.h>
+#include <DHT11/bbb_dht_read.h>
 #include "cJSON.h"
 #include "ST_interface.h"
 
@@ -19,6 +20,16 @@ int main() {
     unsigned int microseconds = 10000000;
     while (1){
         printf("\nMolweni\n");
+        char str[16];
+        int gpio_base, gpio_number, result;
+        float humidity = 0, temperature = 0;
+        gpio_base = 1; //Header P8
+        gpio_number = 13; //Pin 11
+
+        result = bbb_dht_read(DHT11, gpio_base, gpio_number, &humidity, &temperature);
+
+        printf("\n\nResult: %d\n\n",result);
+//        read_s = read_sensor_DHT(aobs);
         usleep(microseconds);
     }
 
