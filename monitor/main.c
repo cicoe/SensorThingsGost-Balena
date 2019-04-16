@@ -17,11 +17,7 @@
  */
 
 int main() {
-    int gpio_base, gpio_number, result;
-    float humidity = 999, temperature = 999;
-    gpio_base = 1; //Header P8
-    gpio_number = 13; //Pin 11
-
+/*
     while (1) {
         printf("\nMolweni\n");
 
@@ -36,8 +32,8 @@ int main() {
         printf("Temperature %f\n", temperature);
         sleep(1);
     }
+*/
 
-/*
 char *file_str = NULL;
 char *filename = FILENAME;
 char *ST_ID = "000\0";
@@ -78,22 +74,23 @@ cJSON_ReplaceItemInObject(cJSON_GetObjectItem(aobs, "Datastream"), "@iot.id", da
 
 //Loop posting observations
 int read_s = 0;
-int err_count = 0;
+int misread_count=0;
 while (1) {
+
 //        read_s = read_sensor(aobs);
     read_s = read_sensor_DHT(aobs);
-    if (read_s != 0) {
-        printf("Error reading sensor");
-        err_count +=1;
-        continue;
-    }
 
     cJSON_DeleteItemFromObject(aobs, "result");
-    if (err_count >=100){
-        printf("Too many bad reads, exiting");
+    post_ST(aobs, "http://129.74.246.19:8080/v1.0/Observations");
+
+    if (read_s !=0){
+        misread_count++;
+    }
+
+    if (misread_count >= 100) {
+        printf("Too many misreads, suspending operation and closing application");
         break;
     }
-    post_ST(aobs, "http://129.74.246.19:8080/v1.0/Observations");
 }
 
 printf("\n\nGoing to free mem now");
@@ -104,5 +101,5 @@ cJSON_Delete(asensor);
 cJSON_Delete(aobs);
 printf("\n\nDone\n\n");
 return 0;
-*/
+
 }
