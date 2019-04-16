@@ -81,12 +81,8 @@ int read_s = 0;
 int misread_count=0;
 while (1) {
 
-    printf("\nUnjani");
 //      read_s = read_sensor_dummy(aobs);
     read_s = read_sensor_DHT(aobs);
-    printf("\nuxolo");
-    printf("\nNdisafunda ukuthetha isiXhosa");
-//    cJSON_DeleteItemFromObject(aobs, "result");
     post_ST(aobs, "http://129.74.246.19:8080/v1.0/Observations");
 
     if (read_s !=0){
@@ -97,7 +93,7 @@ while (1) {
         printf("Too many misreads, suspending operation and closing application");
         break;
     }
-    sleep(1);
+    sleep(5*60);
 }
 
 printf("\n\nGoing to free mem now");

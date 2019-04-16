@@ -196,7 +196,7 @@ cJSON *post_ST(cJSON *payload, const char *destination) {
 
 // TODO raise error on not OK response
         ret = curl_easy_perform(handle);
-        printf("\n\nCurl return %s [%d]\n\n",curl_easy_strerror(ret),ret);
+//        printf("\n\nCurl return %s [%d]\n\n",curl_easy_strerror(ret),ret);
         cJSON *json = cJSON_Parse(rs.ptr);
 
 //        printf("\n%s",rs.ptr);
@@ -228,16 +228,22 @@ int read_sensor_dummy(cJSON *observation) {
 int read_sensor_DHT(cJSON *observation) {
     //TODO make a more general way of accessing sensor read - callback perhaps
     char str[16];
-    int sensor, gpio_base, gpio_number, result;
+    int error_cnt = 0, gpio_base, gpio_number, result;
     float humidity = 999, temperature = 999;
     gpio_base = 1; //Header P8
     gpio_number = 13; //Pin 11
 
+
     result = bbb_dht_read(DHT11, gpio_base, gpio_number, &humidity, &temperature);
 
     while (result != 0) {
-        printf("Error Reading Sensor\n");
+        error_cnt++;
+        printf("\nError Reading Sensor.  Error count: %d\n",error_cnt);
         result = bbb_dht_read(DHT11, gpio_base, gpio_number, &humidity, &temperature);
+        if (error_cnt >=5){
+            printf("\nToo many missreads, returning to try again");
+            return -1;
+        }
     }
     printf("Result: %d\n", result);
     printf("Humidity %f\n", humidity);
