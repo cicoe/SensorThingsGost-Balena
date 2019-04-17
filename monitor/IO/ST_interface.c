@@ -245,7 +245,8 @@ int read_sensor_dummy(cJSON *observation0,cJSON *observation1) {
 
 int read_sensor_DHT(cJSON *observation0,cJSON *observation1) {
     //TODO make a more general way of accessing sensor read - callback perhaps
-    char str[16];
+    char str0[16];
+    char str1[16];
     int error_cnt = 0, gpio_base, gpio_number, result;
     float humidity = 999, temperature = 999;
     gpio_base = 1; //Header P8
@@ -266,9 +267,14 @@ int read_sensor_DHT(cJSON *observation0,cJSON *observation1) {
     printf("Result: %d\n", result);
     printf("Humidity %f\n", humidity);
     printf("Temperature %f\n", temperature);
-    snprintf(str, sizeof(str), "%.2f", temperature);
-    if (cJSON_AddStringToObject(observation0, "result", str) == NULL) {
-        printf("Error creating observation0 from sensor reading");
+    snprintf(str0, sizeof(str0), "%.2f", temperature);
+    snprintf(str1, sizeof(str1), "%.2f", humidity);
+    if (cJSON_AddStringToObject(observation0, "result", str0) == NULL) {
+        printf("Error creating observation0 from sensor temp reading");
+        return -1;
+    }
+    if (cJSON_AddStringToObject(observation1, "result", str1) == NULL) {
+        printf("Error creating observation1 from sensor humidity reading");
         return -1;
     }
     return 0;

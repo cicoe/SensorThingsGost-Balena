@@ -89,10 +89,12 @@ int read_s = 0;
 int misread_count=0;
 
 while (1) {
-    read_s = read_sensor_dummy(obs0,obs1);
+//    read_s = read_sensor_dummy(obs0,obs1);
+    read_s = read_sensor_DHT(obs0,obs1);
+
     post_ST(obs0, "http://129.74.246.19:8080/v1.0/Observations");
     post_ST(obs1, "http://129.74.246.19:8080/v1.0/Observations");
-    
+
     if (read_s !=0){
         misread_count++;
     }
