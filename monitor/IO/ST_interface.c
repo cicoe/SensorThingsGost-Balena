@@ -91,7 +91,7 @@ int valid_sensor(cJSON *one_sensor) {
     return 0;
 }
 
-void parse_json2(char ** json_str, cJSON **datastream0, cJSON **datastream1) {
+void parse_json(char **json_str, cJSON **thing, cJSON **datastream0, cJSON **datastream1, cJSON **sensor, cJSON **obsproperty0,cJSON **obsproperty1) {
     //Separate json into strings of things, datastreams, and sensors
 
     if (*json_str) {
@@ -105,19 +105,36 @@ void parse_json2(char ** json_str, cJSON **datastream0, cJSON **datastream1) {
             }
             goto end;
         }
+        // Pull out a thing, check it's valid, return it
+        cJSON *th = cJSON_GetObjectItem(json, "thing");
+        if (valid_thing(th) != 0) { goto end; }
+        *thing = cJSON_Duplicate(th, 1);
+        
         // Pull out datastreams checking each are valid, currently looks for 2
-        //TODO generalise to any number of datastreams
-
         cJSON *ds0 = cJSON_GetObjectItem(json, "datastream");
         if (valid_datastream(ds0) != 0) { goto end; }
         *datastream0 = cJSON_Duplicate(ds0, 1);
+        // Pull out an obsproperty, check it's valid, return it
+        cJSON *op0 = cJSON_GetObjectItem(json, "observed_property");
+        // TODO check valid observed property
+        *obsproperty0 = cJSON_Duplicate(op0, 1);
 
+        //Remove 1st instance so next one can be found
         cJSON_DeleteItemFromObjectCaseSensitive(json,"datastream");
 
+        //get second instance
         cJSON *ds1 = cJSON_GetObjectItem(json, "datastream");
         if (valid_datastream(ds1) != 0) { goto end; }
         *datastream1 = cJSON_Duplicate(ds1, 1);
-        cJSON_DeleteItemFromObjectCaseSensitive(json,"datastream");
+        // Pull out an obsproperty, check it's valid, return it
+        cJSON *op1 = cJSON_GetObjectItem(json, "observed_property");
+        // TODO check valid observed property
+        *obsproperty1 = cJSON_Duplicate(op1, 1);
+
+        // Pull out a sensor, check it's valid, return it
+        cJSON *ss = cJSON_GetObjectItem(json, "sensor");
+        if (valid_sensor(ss) != 0) { goto end; }
+        *sensor = cJSON_Duplicate(ss, 1);
 
 
 
@@ -153,7 +170,7 @@ size_t writefunc(void *ptr, size_t size, size_t nmemb, struct result_string *rs)
 int create_aobservation(cJSON *aobs) {
     //Create result object
 /* TODO removed because using add-delete to add value to result in main but surely is another way
-  if (cJSON_AddStringToObject(aobs, "result", "") == NULL)
+  if (cJSON_AddStringToObject``(aobs, "result", "") == NULL)
   {
     printf("Error creating observation");
     return 1;
@@ -207,19 +224,26 @@ cJSON *post_ST(cJSON *payload, const char *destination) {
     }
 }
 
-int read_sensor_dummy(cJSON *observation) {
+int read_sensor_dummy(cJSON *observation0,cJSON *observation1) {
     //Return fake value for testing
-    char str[16];
-    float f = 102.7;
-    snprintf(str, sizeof(str), "%.2f", f);
-    if (cJSON_AddStringToObject(observation, "result", str) == NULL) {
-        printf("Error creating observation from sensor reading");
+    char str0[16];
+    char str1[16];
+    float f0 = 102.7;
+    float f1 = 54;
+    snprintf(str0, sizeof(str0), "%.2f", f0);
+    snprintf(str1, sizeof(str1), "%.2f", f1);
+    if (cJSON_AddStringToObject(observation0, "result", str0) == NULL) {
+        printf("Error creating observation0 from sensor reading");
+        return 1;
+    }
+    if (cJSON_AddStringToObject(observation1, "result", str1) == NULL) {
+        printf("Error creating observation1 from sensor reading");
         return 1;
     }
     return 0;
 }
 
-int read_sensor_DHT(cJSON *observation) {
+int read_sensor_DHT(cJSON *observation0,cJSON *observation1) {
     //TODO make a more general way of accessing sensor read - callback perhaps
     char str[16];
     int error_cnt = 0, gpio_base, gpio_number, result;
@@ -243,8 +267,8 @@ int read_sensor_DHT(cJSON *observation) {
     printf("Humidity %f\n", humidity);
     printf("Temperature %f\n", temperature);
     snprintf(str, sizeof(str), "%.2f", temperature);
-    if (cJSON_AddStringToObject(observation, "result", str) == NULL) {
-        printf("Error creating observation from sensor reading");
+    if (cJSON_AddStringToObject(observation0, "result", str) == NULL) {
+        printf("Error creating observation0 from sensor reading");
         return -1;
     }
     return 0;
