@@ -121,6 +121,7 @@ void parse_json(char **json_str, cJSON **thing, cJSON **datastream0, cJSON **dat
 
         //Remove 1st instance so next one can be found
         cJSON_DeleteItemFromObjectCaseSensitive(json,"datastream");
+        cJSON_DeleteItemFromObjectCaseSensitive(json,"observed_property");
 
         //get second instance
         cJSON *ds1 = cJSON_GetObjectItem(json, "datastream");
