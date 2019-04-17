@@ -260,7 +260,7 @@ int read_sensor_DHT(cJSON *observation0,cJSON *observation1) {
         error_cnt++;
         printf("\nError Reading Sensor.  Error count: %d\n",error_cnt);
         result = bbb_dht_read(DHT11, gpio_base, gpio_number, &humidity, &temperature);
-        if (error_cnt >=5){
+        if (error_cnt >=50){
             printf("\nToo many missreads, returning to try again");
             break;
         }
