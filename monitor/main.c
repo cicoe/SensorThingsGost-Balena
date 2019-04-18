@@ -103,7 +103,7 @@ while (1) {
         printf("Too many misreads, suspending operation and closing application");
         break;
     }
-    sleep(60)
+    sleep(60);
 //    sleep(5*60);
 }
 
