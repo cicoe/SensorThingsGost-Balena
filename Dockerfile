@@ -9,7 +9,7 @@ RUN apt-get -q update && apt-get install -yq --no-install-recommends \
 
 # Build C application
 WORKDIR /usr/src/app/
-COPY ./monitor .
+COPY . .
 #COPY . /usr/src/app
 
 ##RUN mkdir /usr/src/app/build
