@@ -1,5 +1,4 @@
-##FROM balenalib/beaglebone-black-golang:latest-build AS build
-FROM resin/%%RESIN_MACHINE_NAME%%-debian:stretch AS build
+FROM balenalib/beaglebone-black-golang:latest-build AS build
 
 # Install build tools and remove apt-cache afterwards
 RUN apt-get -q update && apt-get install -yq --no-install-recommends \
