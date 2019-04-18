@@ -1,4 +1,5 @@
-FROM balenalib/beaglebone-black-golang:latest-build AS build
+##FROM balenalib/beaglebone-black-golang:latest-build AS build
+FROM resin/%%RESIN_MACHINE_NAME%%-debian:stretch AS build
 
 # Install build tools and remove apt-cache afterwards
 RUN apt-get -q update && apt-get install -yq --no-install-recommends \
@@ -11,14 +12,14 @@ RUN apt-get -q update && apt-get install -yq --no-install-recommends \
 WORKDIR /usr/src/app
 COPY . /usr/src/app
 
-RUN mkdir /usr/src/app/build
-WORKDIR /usr/src/app/build
-RUN cmake ../monitor
+##RUN mkdir /usr/src/app/build
+##WORKDIR /usr/src/app/build
+RUN cmake ./monitor/
 RUN make
 
 # Switch to operational container
 FROM balenalib/beaglebone-black-debian:stretch
-COPY --from=build /usr/src/app/build/monitor monitor
+COPY --from=build /usr/src/app/monitor monitor
 COPY --from=build /usr/src/app/monitor/* ./
 
 #switch on systemd init system in container
