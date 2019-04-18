@@ -111,14 +111,14 @@ printf("\n\nGoing to free mem now");
 free(file_str);
 cJSON_Delete(athing);
 cJSON_Delete(datastream0);
-//cJSON_Delete(datastream1);
+cJSON_Delete(datastream1);
 cJSON_Delete(asensor);
 cJSON_Delete(obs0);
-//cJSON_Delete(obs1);
-//cJSON_Delete(obsproperty0);
-//cJSON_Delete(obsproperty1);
-//cJSON_Delete(obsprop_id0);
-//cJSON_Delete(obsprop_id1);
+cJSON_Delete(obs1);
+cJSON_Delete(obsproperty0);
+cJSON_Delete(obsproperty1);
+cJSON_Delete(obsprop_id0);
+cJSON_Delete(obsprop_id1);
 #endif
 
 printf("\n\nDone\n\n");
