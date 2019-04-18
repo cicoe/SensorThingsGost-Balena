@@ -265,7 +265,7 @@ int read_sensor_DHT(cJSON *observation0,cJSON *observation1) {
             break;
         }
     }
-    printf("Result: %d\n", result);
+
     printf("Humidity %f\n", humidity);
     printf("Temperature %f\n", temperature);
     snprintf(str0, sizeof(str0), "%.2f", temperature);
