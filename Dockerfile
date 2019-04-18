@@ -8,13 +8,14 @@ RUN apt-get -q update && apt-get install -yq --no-install-recommends \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Build C application
-WORKDIR /usr/src/app
+WORKDIR /usr/src/app/monitor/
 #COPY ./monitor/* .
 #COPY . /usr/src/app
 
 ##RUN mkdir /usr/src/app/build
 ##WORKDIR /usr/src/app/build
-RUN cmake ./monitor/
+#RUN cmake ./monitor/
+RUN cmake 
 RUN make
 
 # Switch to operational container
