@@ -1,3 +1,4 @@
+RUN pwd && ls -lR
 FROM balenalib/beaglebone-black-golang:latest-build AS build
 
 # Install build tools and remove apt-cache afterwards
@@ -9,10 +10,12 @@ RUN apt-get -q update && apt-get install -yq --no-install-recommends \
 
 # Build C application
 WORKDIR /usr/src/app
-COPY test_sensor.c /usr/src/app
-COPY monitor/onething.json /usr/src/app
+RUN pwd && ls -lR
+#COPY test_sensor.c /usr/src/app
+COPY . /usr/src/app
+RUN pwd && ls -lR
 
-RUN mkdir /usr/src/app/build
+#RUN mkdir /usr/src/app/build
 WORKDIR /usr/src/app/build
 RUN pwd && ls -lR
 
