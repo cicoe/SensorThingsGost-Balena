@@ -1,5 +1,4 @@
 FROM balenalib/beaglebone-black-golang:latest-build AS build
-RUN pwd && ls -lR
 
 # Install build tools and remove apt-cache afterwards
 RUN apt-get -q update && apt-get install -yq --no-install-recommends \
@@ -10,16 +9,10 @@ RUN apt-get -q update && apt-get install -yq --no-install-recommends \
 
 # Build C application
 WORKDIR /usr/src/app
-RUN pwd && ls -lR
-#COPY test_sensor.c /usr/src/app
 COPY . /usr/src/app
-RUN pwd && ls -lR
-ADD monitor /usr/src/app/monitor
-RUN pwd && ls -lR
 
 #RUN mkdir /usr/src/app/build
 WORKDIR /usr/src/app/build
-RUN pwd && ls -lR
 
 RUN cmake ../monitor
 RUN make
