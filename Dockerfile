@@ -10,10 +10,12 @@ RUN apt-get -q update && apt-get install -yq --no-install-recommends \
 # Build C application
 WORKDIR /usr/src/app
 COPY test_sensor.c /usr/src/app
-COPY monitor /usr/src/app/monitor
+COPY monitor/onething.json /usr/src/app
 
 RUN mkdir /usr/src/app/build
 WORKDIR /usr/src/app/build
+RUN pwd && ls -lR
+
 RUN cmake ../monitor
 RUN make
 
