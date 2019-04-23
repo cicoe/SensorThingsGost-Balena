@@ -8,8 +8,8 @@ RUN apt-get -q update && apt-get install -yq --no-install-recommends \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Build C application
-WORKDIR /usr/src/app
 COPY . /usr/src/app
+WORKDIR /usr/src/app
 
 RUN mkdir /usr/src/app/build
 WORKDIR /usr/src/app/build
