@@ -13,6 +13,7 @@ WORKDIR /usr/src/app
 RUN pwd && ls -lR
 #COPY test_sensor.c /usr/src/app
 COPY . /usr/src/app
+RUN pwd && ls -lR
 ADD monitor /usr/src/app/monitor
 RUN pwd && ls -lR
 
