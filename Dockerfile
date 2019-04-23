@@ -10,7 +10,7 @@ RUN apt-get -q update && apt-get install -yq --no-install-recommends \
 # Build C application
 WORKDIR /usr/src/app
 COPY test_sensor.c /usr/src/app
-COPY monitor/ /usr/src/app
+COPY monitor /usr/src/app/monitor
 
 RUN mkdir /usr/src/app/build
 WORKDIR /usr/src/app/build
