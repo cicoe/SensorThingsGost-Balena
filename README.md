@@ -25,10 +25,10 @@
 
 ## Demo
 * [Gost Portal Demo](http://129.74.246.19:8080/#/home)
-  - Temperature Datastream Observations. [Live stream](http://129.74.246.19:8080/#/datastream/106)
+  - Temperature Datastream Observations. [Live stream](http://129.74.246.19:8080/#/datastream/1)
 ![Screenshot](images/datastream.png)
 
-  - Humidity Datastream Observations. [Live stream](http://129.74.246.19:8080/#/datastream/107)
+  - Humidity Datastream Observations. [Live stream](http://129.74.246.19:8080/#/datastream/2)
 
 
 
