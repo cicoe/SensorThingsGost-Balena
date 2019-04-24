@@ -12,7 +12,7 @@
 
 
 3. **[OGC Sensor Things](https://www.opengeospatial.org/standards/sensorthings)**
-  -**What it is:** _Open Geospatial Consortium Sensor Things API is "...an open and unified framework to interconnect IoT sensing devices, data, and applications over the Web. It is an open standard addressing the syntactic interoperability and semantic interoperability of the Internet of Things"_[1].  Or in other words it provides a standardized and standards based mechanism for capturing sensor observations built on existing standards and ontologies. [Github](https://www.opengeospatial.org/standards/sensorthings)
+ - **What it is:** Open Geospatial Consortium Sensor Things API is "...an open and unified framework to interconnect IoT sensing devices, data, and applications over the Web. It is an open standard addressing the syntactic interoperability and semantic interoperability of the Internet of Things"_[1].  Or in other words it provides a standardized and standards based mechanism for capturing sensor observations built on existing standards and ontologies. [Github](https://www.opengeospatial.org/standards/sensorthings)
   - Amongst other standards Sensor Things uses the [OGC Observations and Measurements](https://www.opengeospatial.org/standards/om) model and OGC Ontology for Sensors, Observations, Samples, and Actuators [SOSA](https://www.w3.org/ns/sosa/).  Combined they create a model for capturing sensor data that provides the framework for making that data linked.
   -   **How it's used here:** This demo uses Gost (see below) which is an implimentation of Sensor Things.
 
