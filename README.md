@@ -25,10 +25,10 @@
 
 ## Demo
 * [Gost Portal Demo](http://129.74.246.19:8080/#/home)
-  - Temperature Datastream Observations. [Live stream](http://129.74.246.19:8080/#/datastream/1)
+  - Temperature Datastream Observations. [Live stream](http://iot.crc.nd.edu:8080/#/datastream/21)
 ![Screenshot](images/datastream.png)
 
-  - Humidity Datastream Observations. [Live stream](http://129.74.246.19:8080/#/datastream/2)
+  - Humidity Datastream Observations. [Live stream](http://iot.crc.nd.edu:8080/#/datastream/22)
 
 
 
